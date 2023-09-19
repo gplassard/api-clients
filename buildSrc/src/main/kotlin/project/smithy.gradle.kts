@@ -1,5 +1,9 @@
 package project
 
+import org.gradle.accessors.dm.LibrariesForLibs
+
+val libs = the<LibrariesForLibs>()
+
 plugins {
     id("java")
     id("software.amazon.smithy")
@@ -27,8 +31,8 @@ sourceSets {
 }
 
 dependencies {
-    implementation("software.amazon.smithy:smithy-cli:1.38.0")
-    implementation("software.amazon.smithy:smithy-model:1.38.0")
-    implementation("software.amazon.smithy:smithy-openapi:1.38.0")
-    implementation("software.amazon.smithy:smithy-aws-traits:1.38.0")
+    implementation(libs.smithy.cli)
+    implementation(libs.smithy.model)
+    implementation(libs.smithy.openapi)
+    implementation(libs.smithy.aws.traits)
 }

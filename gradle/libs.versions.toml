@@ -1,0 +1,28 @@
+[versions]
+jackson = "2.15.2"
+jackson-databind-nullable = "0.2.6"
+jakarta = "2.1.1"
+smithy = "1.38.0"
+
+smithy-plugin = "0.7.0"
+openapi-plugin = "7.0.1"
+
+[libraries]
+jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
+jackson-databind-nullable = { module = "org.openapitools:jackson-databind-nullable", version.ref = "jackson-databind-nullable" }
+jakarta-annotation-api = { module = "jakarta.annotation:jakarta.annotation-api", version.ref = "jakarta" }
+smithy-cli = { module = "software.amazon.smithy:smithy-cli", version.ref = "smithy" }
+smithy-model = { module = "software.amazon.smithy:smithy-model", version.ref = "smithy" }
+smithy-openapi = { module = "software.amazon.smithy:smithy-openapi", version.ref = "smithy" }
+smithy-aws-traits = { module = "software.amazon.smithy:smithy-aws-traits", version.ref = "smithy" }
+
+# are actually plugins but referenced from buildSrc/build.gradle.kts so defined as libs
+smithy-plugin = { module = "software.amazon.smithy:software.amazon.smithy.gradle.plugin", version.ref = "smithy-plugin"}
+openapi-plugin = { module = "org.openapi.generator:org.openapi.generator.gradle.plugin", version.ref = "openapi-plugin"}
+
+[bundles]
+# Define bundles/groups of libraries
+
+[plugins]

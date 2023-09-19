@@ -8,10 +8,9 @@ repositories {
 }
 
 dependencies {
-    fun pluginDependency(id: String, version: String) {
-        implementation("$id:$id.gradle.plugin:$version")
-    }
+    // https://github.com/gradle/gradle/issues/15383
+    implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
 
-    pluginDependency("software.amazon.smithy", "0.7.0")
-    pluginDependency("org.openapi.generator", "7.0.1")
+    implementation(libs.smithy.plugin)
+    implementation(libs.openapi.plugin)
 }

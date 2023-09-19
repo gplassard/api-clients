@@ -1,5 +1,9 @@
 package project
 
+import org.gradle.accessors.dm.LibrariesForLibs
+
+val libs = the<LibrariesForLibs>()
+
 plugins {
     id("java")
 }
@@ -8,16 +12,12 @@ repositories {
     mavenCentral()
 }
 
-val jackson_version = "2.15.2"
-val jakarta_annotation_version = "2.1.1"
-val openapitools_jackson_databind_nullable_version = "0.2.6"
-
 dependencies {
-    implementation("com.fasterxml.jackson.core:jackson-core:$jackson_version")
-    implementation("com.fasterxml.jackson.core:jackson-databind:$jackson_version")
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version")
-    implementation("org.openapitools:jackson-databind-nullable:$openapitools_jackson_databind_nullable_version")
-    implementation("jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version")
+    implementation(libs.jackson.core)
+    implementation(libs.jackson.databind)
+    implementation(libs.jackson.datatype.jsr310)
+    implementation(libs.jackson.databind.nullable)
+    implementation(libs.jakarta.annotation.api)
 }
 
 tasks.named("compileJava") {
