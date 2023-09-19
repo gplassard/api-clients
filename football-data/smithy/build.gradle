@@ -1,0 +1,8 @@
+plugins {
+    id("project.smithy")
+}
+
+customOpenApiGeneration {
+    baseModule = "football-data"
+    apiName = "FootballData"
+}
