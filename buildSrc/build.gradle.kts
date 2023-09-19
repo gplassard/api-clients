@@ -13,5 +13,5 @@ dependencies {
     }
 
     pluginDependency("software.amazon.smithy", "0.7.0")
-    pluginDependency("org.openapi.generator", "6.6.0")
+    pluginDependency("org.openapi.generator", "7.0.1")
 }

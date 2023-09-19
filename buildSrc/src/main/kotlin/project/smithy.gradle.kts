@@ -6,10 +6,11 @@ plugins {
     id("org.openapi.generator")
 }
 
+apply<CustomOpenApiGenerationPlugin>()
+
 repositories {
     mavenCentral()
 }
-
 
 java {
     toolchain {
