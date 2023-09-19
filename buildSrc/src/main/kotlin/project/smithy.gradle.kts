@@ -6,6 +6,11 @@ plugins {
     id("org.openapi.generator")
 }
 
+repositories {
+    mavenCentral()
+}
+
+
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
