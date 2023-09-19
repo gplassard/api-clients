@@ -20,7 +20,7 @@ java {
 sourceSets {
     main {
         java {
-            include("src/main/smithy")
+            srcDir("src/main/smithy")
         }
     }
 }
