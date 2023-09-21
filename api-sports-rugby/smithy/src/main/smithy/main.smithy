@@ -1,18 +1,14 @@
 $version: "2"
 
-namespace footballdata
-
+namespace apiSport
 
 use aws.protocols#restJson1
-use footballdata#AreaResource
-use footballdata#CompetitionResource
-use footballdata#MatchResource
 
 @restJson1
 @httpApiKeyAuth(name: "X-Auth-Token", in: "header")
-service FootballData {
+service Rugby {
     version: "1.0"
-    resources: [AreaResource, CompetitionResource, MatchResource]
+    resources: [LeagueResource]
     operations: []
 }
 
