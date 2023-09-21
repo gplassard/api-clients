@@ -2,3 +2,11 @@ plugins {
     id("project.java-client")
     id("net.researchgate.release")
 }
+
+module = project.path.split(":")[1]
+release {
+    tagTemplate = module + '-${version}'
+    preTagCommitMessage = "release($module) - pre tag commit: "
+    tagCommitMessage = 'release($module) - creating tag: '
+    newVersionCommitMessage = 'release($module) - new version commit: '
+}

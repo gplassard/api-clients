@@ -8,7 +8,6 @@ import org.gradle.kotlin.dsl.register
 import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
 
 interface CustomOpenApiGenerationPluginExtension {
-    val baseModule: Property<String>
     val apiName: Property<String>
 }
 
@@ -18,16 +17,17 @@ class CustomOpenApiGenerationPlugin : Plugin<Project> {
         project.tasks.register<GenerateTask>("codegenJavaClient") {
             dependsOn("smithyBuildJar")
 
-            val packageName = extension.baseModule.get().replace("-", "")
+            val baseModule = project.path.split(":")[1]
+            val packageName = baseModule.replace("-", "")
 
             generatorName.set("java")
-            inputSpec.set("${project.rootDir}/${extension.baseModule.get()}/smithy/build/smithyprojections/smithy/source/openapi/${extension.apiName.get()}.openapi.json")
-            outputDir.set("${project.rootDir}/${extension.baseModule.get()}/java-client")
+            inputSpec.set("${project.rootDir}/${baseModule}/smithy/build/smithyprojections/smithy/source/openapi/${extension.apiName.get()}.openapi.json")
+            outputDir.set("${project.rootDir}/${baseModule}/java-client")
             configOptions.putAll(mapOf(
                 "library" to "native",
                 "useJakartaEe" to "true",
                 "groupId" to "fr.gplassard.apiclients",
-                "artifactId" to "${extension.baseModule.get()}-api-client",
+                "artifactId" to "${baseModule}-api-client",
                 "invokerPackage" to "fr.gplassard.apiclients.$packageName.javaclient",
                 "apiPackage" to "fr.gplassard.apiclients.$packageName.javaclient.api",
                 "modelPackage" to "fr.gplassard.apiclients.$packageName.javaclient.model",

@@ -3,6 +3,5 @@ plugins {
 }
 
 customOpenApiGeneration {
-    baseModule = "football-data"
     apiName = "FootballData"
 }

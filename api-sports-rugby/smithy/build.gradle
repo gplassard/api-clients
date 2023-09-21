@@ -2,6 +2,5 @@ plugins {
     id("project.smithy")
 }
 customOpenApiGeneration {
-    baseModule = "api-sports-rugby"
     apiName = "FootballData"
 }
