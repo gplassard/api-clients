@@ -6,6 +6,7 @@ smithy = "1.38.0"
 
 smithy-plugin = "0.7.0"
 openapi-plugin = "7.0.1"
+release-plugin = "3.0.2"
 
 [libraries]
 jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
@@ -26,3 +27,4 @@ openapi-plugin = { module = "org.openapi.generator:org.openapi.generator.gradle.
 # Define bundles/groups of libraries
 
 [plugins]
+release-plugin = { id = "net.researchgate.release", version.ref = "release-plugin"}

@@ -1,3 +1,4 @@
 plugins {
     id("project.java-client")
+    id("net.researchgate.release")
 }
