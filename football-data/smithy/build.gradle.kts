@@ -3,5 +3,5 @@ plugins {
 }
 
 customOpenApiGeneration {
-    apiName = "FootballData"
+    apiName.set("FootballData")
 }

@@ -2,5 +2,5 @@ plugins {
     id("project.smithy")
 }
 customOpenApiGeneration {
-    apiName = "FootballData"
+    apiName.set("FootballData")
 }
