@@ -1,0 +1,27 @@
+name: Java release api sports rugby
+
+on:
+  push:
+    tags:
+      - "football-data-*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'gradle'
+      - name: Build
+        run: ./gradlew build
+      - name: Publish package
+        run: ./gradlew :football-data:java-client:publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
