@@ -13,4 +13,5 @@ dependencies {
 
     implementation(libs.smithy.plugin)
     implementation(libs.openapi.plugin)
+    implementation(libs.integrationtest.plugin)
 }

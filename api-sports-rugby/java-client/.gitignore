@@ -1,4 +1,4 @@
-src/
+src/main/java
 api/
 .openapi-generator
 docs

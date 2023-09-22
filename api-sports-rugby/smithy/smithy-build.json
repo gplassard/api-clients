@@ -4,7 +4,14 @@
     "openapi": {
       "service": "apiSport#Rugby",
       "tags": true,
-      "useIntegerType": true
+      "useIntegerType": true,
+      "jsonAdd": {
+        "/servers": [
+          {
+            "url": "https://v1.rugby.api-sports.io"
+          }
+        ]
+      }
     }
   }
 }
