@@ -7,6 +7,7 @@ val libs = the<LibrariesForLibs>()
 plugins {
     id("java")
     id("maven-publish")
+    id("com.coditory.integration-test")
 }
 
 repositories {
@@ -19,8 +20,15 @@ dependencies {
     implementation(libs.jackson.datatype.jsr310)
     implementation(libs.jackson.databind.nullable)
     implementation(libs.jakarta.annotation.api)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.assertj)
+    testRuntimeOnly(libs.junit.platform)
 }
 
+tasks.withType<Test> {
+    useJUnitPlatform()
+}
 
 publishing {
     repositories {

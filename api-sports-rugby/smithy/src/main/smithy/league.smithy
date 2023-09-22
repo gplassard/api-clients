@@ -27,11 +27,17 @@ operation ListLeagues {
     output := {
         get: String
         parameters: Document
-        errors: Document
+        errors: ErrorList
         results: Integer
         response: LeaguesList
     }
 }
+
+list ErrorList {
+    member: Error
+}
+
+document Error
 
 enum LeagueType {
     league, cup
@@ -57,7 +63,7 @@ structure LeagueCountry {
     flag: String
 }
 
-structure LeagueSeasonsList {
+list LeagueSeasonsList {
     member: LeagueSeason
 }
 

@@ -5,7 +5,7 @@ namespace apiSport
 use aws.protocols#restJson1
 
 @restJson1
-@httpApiKeyAuth(name: "X-Auth-Token", in: "header")
+@httpApiKeyAuth(name: "x-apisports-key", in: "header")
 service Rugby {
     version: "1.0"
     resources: [LeagueResource]

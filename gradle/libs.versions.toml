@@ -3,10 +3,13 @@ jackson = "2.15.2"
 jackson-databind-nullable = "0.2.6"
 jakarta = "2.1.1"
 smithy = "1.38.0"
+junit = "5.7.1"
+assertj = "3.24.2"
 
 smithy-plugin = "0.7.0"
 openapi-plugin = "7.0.1"
 release-plugin = "3.0.2"
+integrationtest-plugin = "1.4.5"
 
 [libraries]
 jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
@@ -18,10 +21,14 @@ smithy-cli = { module = "software.amazon.smithy:smithy-cli", version.ref = "smit
 smithy-model = { module = "software.amazon.smithy:smithy-model", version.ref = "smithy" }
 smithy-openapi = { module = "software.amazon.smithy:smithy-openapi", version.ref = "smithy" }
 smithy-aws-traits = { module = "software.amazon.smithy:smithy-aws-traits", version.ref = "smithy" }
+junit = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+junit-platform = { module = "org.junit.platform:junit-platform-launcher" }
+assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 
 # are actually plugins but referenced from buildSrc/build.gradle.kts so defined as libs
 smithy-plugin = { module = "software.amazon.smithy:software.amazon.smithy.gradle.plugin", version.ref = "smithy-plugin"}
 openapi-plugin = { module = "org.openapi.generator:org.openapi.generator.gradle.plugin", version.ref = "openapi-plugin"}
+integrationtest-plugin = { module = "com.coditory.integration-test:com.coditory.integration-test.gradle.plugin", version.ref = "integrationtest-plugin"}
 
 [bundles]
 # Define bundles/groups of libraries
