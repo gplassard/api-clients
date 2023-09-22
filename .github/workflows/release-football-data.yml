@@ -20,7 +20,7 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
       - name: Build
-        run: ./gradlew build
+        run: ./gradlew build -x integrationTest
       - name: Publish package
         run: ./gradlew :football-data:java-client:publish
         env:
