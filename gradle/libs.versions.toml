@@ -3,7 +3,7 @@ jackson = "2.15.2"
 jackson-databind-nullable = "0.2.6"
 jakarta = "2.1.1"
 smithy = "1.38.0"
-junit = "5.7.1"
+junit = "5.10.0"
 assertj = "3.24.2"
 
 smithy-plugin = "0.7.0"
