@@ -29,7 +29,7 @@ class CustomOpenApiGenerationPlugin : Plugin<Project> {
                 "groupId" to "fr.gplassard.apiclients",
                 "artifactId" to "${baseModule}-api-client",
                 "invokerPackage" to "fr.gplassard.apiclients.$packageName.javaclient",
-                "apiPackage" to "fr.gplassard.apiclients.$packageName.javaclient.api",
+                "apiPackage" to "fr.gplassard.apiclients.$packageName.javaclient.api.base",
                 "modelPackage" to "fr.gplassard.apiclients.$packageName.javaclient.model",
             ))
         }

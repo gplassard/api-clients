@@ -27,14 +27,10 @@ operation ListLeagues {
     output := {
         get: String
         parameters: Document
-        errors: ErrorList
+        errors: Document
         results: Integer
         response: LeaguesList
     }
-}
-
-list ErrorList {
-    member: Error
 }
 
 document Error
