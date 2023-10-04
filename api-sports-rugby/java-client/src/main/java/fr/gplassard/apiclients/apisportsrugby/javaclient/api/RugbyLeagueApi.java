@@ -6,7 +6,9 @@ import fr.gplassard.apiclients.apisportsrugby.javaclient.api.base.LeagueApi;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.model.League;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.model.LeagueType;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class RugbyLeagueApi {
     private final LeagueApi leagueApi;
@@ -19,13 +21,26 @@ public class RugbyLeagueApi {
 
     public List<League> listLeagues(String id, String name, String countryId, LeagueType type, String season, String search) throws ApiException {
          var response = this.leagueApi.listLeaguesWithHttpInfo(id, name, countryId, type, season, search);
-         if (response.getData().getErrors() != null && !response.getData().getErrors().isEmpty()) {
+         var errors = this.getErrors(response.getData().getErrors());
+         if (!errors.isEmpty()) {
              throw new ApiException(
                      response.getStatusCode(),
-                     response.getData().getErrors().toString()
+                     errors.toString()
              );
          }
          return response.getData().getResponse();
+    }
+
+    @SuppressWarnings("unchecked")
+    private List<Map<String, Object>> getErrors(Object errors) {
+        // errors can either be a JSON array of objects or directly an object if there is only one error
+        if (errors == null) {
+            return Collections.emptyList();
+        }
+        if (errors instanceof List) {
+            return (List<Map<String, Object>>) errors;
+        }
+        return Collections.singletonList((Map<String, Object>) errors);
     }
 
 }
