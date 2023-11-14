@@ -40,6 +40,14 @@ publishing {
                 password = project.findProperty("gpr.key")?.toString() ?: System.getenv("GITHUB_TOKEN")
             }
         }
+        maven {
+            name = "CodeArtifact"
+            url = uri(project.findProperty("codeartifact.url")?.toString() ?: System.getenv("CODE_ARTIFACT_URL"))
+            credentials {
+                username = "aws"
+                password = project.findProperty("codeartifact.token")?.toString() ?: System.getenv("CODEARTIFACT_AUTH_TOKEN")
+            }
+        }
     }
     publications {
         create<MavenPublication>("maven") {
