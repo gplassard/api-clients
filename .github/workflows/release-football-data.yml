@@ -6,7 +6,7 @@ on:
       - "football-data-*"
 
 jobs:
-  build:
+  build-github:
     runs-on: ubuntu-latest
     env:
       CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
@@ -28,6 +28,24 @@ jobs:
         run: ./gradlew :football-data:java-client:publishAllPublicationsToGithubPackagesRepository
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build-code-artifact:
+    runs-on: ubuntu-latest
+    env:
+      CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'gradle'
+      - name: Build
+        run: ./gradlew build -x integrationTest
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
