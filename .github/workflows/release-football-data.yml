@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
     permissions:
       contents: read
       packages: write
@@ -42,4 +44,3 @@ jobs:
         run: ./gradlew :football-data:java-client:publishAllPublicationsToCodeArtifactRepository
         env:
           CODEARTIFACT_AUTH_TOKEN: ${{ steps.code-artifact-token.outputs.token }}
-          CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}

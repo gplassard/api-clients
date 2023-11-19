@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
 
     steps:
       - uses: actions/checkout@v3
