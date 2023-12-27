@@ -16,7 +16,7 @@ public class RugbyLeagueApi {
     public RugbyLeagueApi(String apiKey) {
         ApiClient apiClient = new ApiClient();
         apiClient.setRequestInterceptor(r -> r.headers("x-apisports-key", apiKey));
-        this.leagueApi = new LeagueApi();
+        this.leagueApi = new LeagueApi(apiClient);
     }
 
     public List<League> listLeagues(String id, String name, String countryId, LeagueType type, String season, String search) throws ApiException {
