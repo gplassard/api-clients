@@ -40,12 +40,15 @@ publishing {
                 password = project.findProperty("gpr.key")?.toString() ?: System.getenv("GITHUB_TOKEN")
             }
         }
-        maven {
-            name = "CodeArtifact"
-            url = uri(project.findProperty("codeartifact.url")?.toString() ?: System.getenv("CODE_ARTIFACT_URL"))
-            credentials {
-                username = "aws"
-                password = project.findProperty("codeartifact.token")?.toString() ?: System.getenv("CODEARTIFACT_AUTH_TOKEN")
+        val codeartifactUrl = project.findProperty("codeartifact.url")?.toString() ?: System.getenv("CODE_ARTIFACT_URL")
+        if (codeartifactUrl != null) {
+            maven {
+                name = "CodeArtifact"
+                url = uri(codeartifactUrl)
+                credentials {
+                    username = "aws"
+                    password = project.findProperty("codeartifact.token")?.toString() ?: System.getenv("CODEARTIFACT_AUTH_TOKEN")
+                }
             }
         }
     }
