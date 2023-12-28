@@ -1,4 +1,4 @@
-package fr.gplassard.apiclients.apisportsrugby.javaclient.league;
+package fr.gplassard.apiclients.apisportsrugby.javaclient;
 
 public class TestUtils {
     public static String getApiSportKey() {

@@ -48,17 +48,9 @@ structure League {
     name: String
     type: String
     logo: String
-    country: LeagueCountry
+    country: Country
     seasons: LeagueSeasonsList
 }
-
-structure LeagueCountry {
-    id: String
-    name: String
-    code: String
-    flag: String
-}
-
 list LeagueSeasonsList {
     member: LeagueSeason
 }

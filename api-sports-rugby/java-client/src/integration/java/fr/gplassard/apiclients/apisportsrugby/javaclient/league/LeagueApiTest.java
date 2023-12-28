@@ -1,6 +1,7 @@
 package fr.gplassard.apiclients.apisportsrugby.javaclient.league;
 
 import fr.gplassard.apiclients.apisportsrugby.javaclient.ApiException;
+import fr.gplassard.apiclients.apisportsrugby.javaclient.TestUtils;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.api.highlevel.RugbyLeagueApi;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.api.highlevel.RugbyLeagueApiClient;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.model.ListLeaguesRequest;
@@ -14,6 +15,7 @@ class LeagueApiTest {
     @Test
     void listLeagues() throws ApiException {
         var response = leagueApi.listLeagues(ListLeaguesRequest.builder().build());
+        System.out.println(response.getData());
 
         assertThat(response.getStatusCode()).isEqualTo(200);
         assertThat(response.getData()).hasSizeGreaterThan(50);
