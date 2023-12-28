@@ -1,5 +1,4 @@
 src/main/java/**/*
-!src/main/java/fr/gplassard/apiclients/apisportsrugby/javaclient/api/
 api/
 .openapi-generator
 docs
