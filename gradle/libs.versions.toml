@@ -5,6 +5,7 @@ jakarta = "2.1.1"
 smithy = "1.42.0"
 junit = "5.10.1"
 assertj = "3.24.2"
+lombok = "1.18.30"
 
 smithy-plugin = "0.7.0"
 openapi-plugin = "7.0.1"
@@ -24,6 +25,7 @@ smithy-aws-traits = { module = "software.amazon.smithy:smithy-aws-traits", versi
 junit = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 junit-platform = { module = "org.junit.platform:junit-platform-launcher" }
 assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 
 # are actually plugins but referenced from buildSrc/build.gradle.kts so defined as libs
 smithy-plugin = { module = "software.amazon.smithy:software.amazon.smithy.gradle.plugin", version.ref = "smithy-plugin"}

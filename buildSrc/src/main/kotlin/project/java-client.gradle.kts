@@ -20,6 +20,8 @@ dependencies {
     implementation(libs.jackson.datatype.jsr310)
     implementation(libs.jackson.databind.nullable)
     implementation(libs.jakarta.annotation.api)
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
 
     testImplementation(libs.junit)
     testImplementation(libs.assertj)
