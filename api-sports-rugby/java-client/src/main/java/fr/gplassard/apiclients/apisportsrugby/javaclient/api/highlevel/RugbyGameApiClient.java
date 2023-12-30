@@ -1,7 +1,6 @@
 package fr.gplassard.apiclients.apisportsrugby.javaclient.api.highlevel;
 
 import fr.gplassard.apiclients.apisportsrugby.javaclient.ApiClient;
-import fr.gplassard.apiclients.apisportsrugby.javaclient.ApiException;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.ApiResponse;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.api.base.GameApi;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.model.Game;
@@ -21,7 +20,7 @@ public class RugbyGameApiClient implements RugbyGameApi {
     }
 
     @Override
-    public ApiResponse<List<Game>> listGames(ListGamesRequest request) throws ApiException {
+    public ApiResponse<List<Game>> listGames(ListGamesRequest request) {
         var response = this.gameApi.listGamesWithHttpInfo(
                 request.id(),
                 request.date(),

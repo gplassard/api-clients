@@ -26,6 +26,7 @@ class CustomOpenApiGenerationPlugin : Plugin<Project> {
             configOptions.putAll(mapOf(
                 "library" to "native",
                 "useJakartaEe" to "true",
+                "useRuntimeException" to "true",
                 "groupId" to "fr.gplassard.apiclients",
                 "artifactId" to "${baseModule}-api-client",
                 "invokerPackage" to "fr.gplassard.apiclients.$packageName.javaclient",
