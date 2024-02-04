@@ -31,6 +31,7 @@ sourceSets {
 }
 
 dependencies {
+    implementation(project(":smithy-plugins:open-api-plugin"))
     implementation(libs.smithy.cli)
     implementation(libs.smithy.model)
     implementation(libs.smithy.openapi)
