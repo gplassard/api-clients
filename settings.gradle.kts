@@ -11,3 +11,5 @@ include("football-data:java-client")
 
 include("api-sports-rugby:smithy")
 include("api-sports-rugby:java-client")
+
+include("smithy-plugins:open-api-plugin")
