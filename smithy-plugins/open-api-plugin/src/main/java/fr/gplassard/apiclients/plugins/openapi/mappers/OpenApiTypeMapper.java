@@ -19,17 +19,17 @@ public class OpenApiTypeMapper implements JsonSchemaMapper {
             return JsonSchemaMapper.super.updateSchema(context, schemaBuilder);
         }
         var objectNode = openApiTrait.get().toNode().asObjectNode();
-        var type = extractType(objectNode, "type");
-        var format = extractType(objectNode, "format");
+        var type = extractValue(objectNode, "type");
+        var format = extractValue(objectNode, "format");
         if (type.isEmpty()) {
             throw new RuntimeException("Invalid @openApiType, could not retrieve type");
         }
         return JsonSchemaMapper.super.updateSchema(context, schemaBuilder).type(type.get()).format(format.orElse(null));
     }
 
-    private static Optional<String> extractType(Optional<ObjectNode> objectNode, String type) {
+    private static Optional<String> extractValue(Optional<ObjectNode> objectNode, String attribute) {
         return objectNode.map(ObjectNode::getStringMap)
-                .flatMap(t -> Optional.ofNullable(t.get(type)))
+                .flatMap(t -> Optional.ofNullable(t.get(attribute)))
                 .flatMap(Node::asStringNode)
                 .map(StringNode::getValue);
     }
