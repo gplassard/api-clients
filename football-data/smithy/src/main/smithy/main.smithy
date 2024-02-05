@@ -7,7 +7,7 @@ use aws.protocols#restJson1
 use footballdata#AreaResource
 use footballdata#CompetitionResource
 use footballdata#MatchResource
-use openapiplugin#openApiType
+use openapiextensions#openApiType
 
 @restJson1
 @httpApiKeyAuth(name: "X-Auth-Token", in: "header")
