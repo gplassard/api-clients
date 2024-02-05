@@ -11,6 +11,7 @@ smithy-plugin = "0.7.0"
 openapi-plugin = "7.0.1"
 release-plugin = "3.0.2"
 integrationtest-plugin = "1.4.5"
+smithy-extensions-openapi = "0.1.1"
 
 [libraries]
 jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
@@ -26,6 +27,7 @@ junit = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 junit-platform = { module = "org.junit.platform:junit-platform-launcher" }
 assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+smithy-extensions-openapi = { module = "fr.gplassard.smithyextensions:open-api", version.ref = "smithy-extensions-openapi" }
 
 # are actually plugins but referenced from buildSrc/build.gradle.kts so defined as libs
 smithy-plugin = { module = "software.amazon.smithy:software.amazon.smithy.gradle.plugin", version.ref = "smithy-plugin"}
