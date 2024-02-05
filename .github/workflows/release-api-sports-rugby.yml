@@ -22,8 +22,23 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: 'gradle'
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.CODE_ARTIFACT_READ_ROLE }}
+          aws-region: us-east-1
+      # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-masking-a-generated-output-within-a-single-job
+      - name: Generate code artifact token
+        id: code-artifact-token
+        run: |
+          the_secret=$(aws codeartifact get-authorization-token --domain ${{ secrets.CODE_ARTIFACT_DOMAIN }} --domain-owner ${{ secrets.AWS_ACCOUNT_ID }} --region eu-west-1 --query authorizationToken --output text --duration-seconds 900)
+          echo "::add-mask::$the_secret"
+          echo "token=$the_secret" >> "$GITHUB_OUTPUT"
       - name: Build
         run: ./gradlew build -x integrationTest
+        env:
+          CODEARTIFACT_AUTH_TOKEN: ${{ steps.code-artifact-token.outputs.token }}
+          CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
       - name: Publish package
         run: ./gradlew :api-sports-rugby:java-client:publishAllPublicationsToGithubPackagesRepository
         env:
@@ -42,11 +57,9 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
           cache: 'gradle'
-      - name: Build
-        run: ./gradlew build -x integrationTest
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -59,6 +72,11 @@ jobs:
           the_secret=$(aws codeartifact get-authorization-token --domain ${{ secrets.CODE_ARTIFACT_DOMAIN }} --domain-owner ${{ secrets.AWS_ACCOUNT_ID }} --region eu-west-1 --query authorizationToken --output text --duration-seconds 900)
           echo "::add-mask::$the_secret"
           echo "token=$the_secret" >> "$GITHUB_OUTPUT"
+      - name: Build
+        run: ./gradlew build -x integrationTest
+        env:
+          CODEARTIFACT_AUTH_TOKEN: ${{ steps.code-artifact-token.outputs.token }}
+          CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
       - name: Publish package
         run: ./gradlew :api-sports-rugby:java-client:publishAllPublicationsToCodeArtifactRepository
         env:
