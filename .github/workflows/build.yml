@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
-
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK
