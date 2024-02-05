@@ -20,6 +20,6 @@ service FootballData {
 @timestampFormat("date-time")
 timestamp Instant
 
-@openApiType(type: "date")
+@openApiType(type: "string", format: "date")
 string FullDate
 
