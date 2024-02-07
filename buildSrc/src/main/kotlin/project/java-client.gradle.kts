@@ -23,6 +23,8 @@ java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(21))
     }
+    withJavadocJar()
+    withSourcesJar()
 }
 
 dependencies {
@@ -67,6 +69,12 @@ publishing {
 }
 
 tasks.named("compileJava") {
+    project.parent?.getTasksByName("codegenJavaClient", true)?.forEach {
+        dependsOn(it)
+    }
+}
+
+tasks.named("sourcesJar") {
     project.parent?.getTasksByName("codegenJavaClient", true)?.forEach {
         dependsOn(it)
     }
