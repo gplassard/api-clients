@@ -1,6 +1,7 @@
 package project
 
 import org.gradle.accessors.dm.LibrariesForLibs
+import java.util.*
 
 val libs = the<LibrariesForLibs>()
 
@@ -9,6 +10,11 @@ plugins {
     id("maven-publish")
     id("com.coditory.integration-test")
 }
+
+val props = Properties().apply {
+    load(project.parent?.file("gradle.properties")?.inputStream())
+}
+version = props.getProperty("version")
 
 repositories {
     mavenCentral()
