@@ -43,6 +43,10 @@ jobs:
         run: ./gradlew :api-sports-rugby:java-client:publishAllPublicationsToGithubPackagesRepository
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish package
+        run: ./gradlew :api-sports-rugby:java-api:publishAllPublicationsToGithubPackagesRepository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-code-artifact:
     runs-on: ubuntu-latest
@@ -79,5 +83,9 @@ jobs:
           CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
       - name: Publish package
         run: ./gradlew :api-sports-rugby:java-client:publishAllPublicationsToCodeArtifactRepository
+        env:
+          CODEARTIFACT_AUTH_TOKEN: ${{ steps.code-artifact-token.outputs.token }}
+      - name: Publish package
+        run: ./gradlew :api-sports-rugby:java-api:publishAllPublicationsToCodeArtifactRepository
         env:
           CODEARTIFACT_AUTH_TOKEN: ${{ steps.code-artifact-token.outputs.token }}

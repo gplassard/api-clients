@@ -1,0 +1,24 @@
+package fr.gplassard.apiclients.apisportsrugby.javaclient.league;
+
+import fr.gplassard.apiclients.apisportsrugby.javaapi.model.ListLeaguesRequest;
+import fr.gplassard.apiclients.apisportsrugby.javaclient.ApiException;
+import fr.gplassard.apiclients.apisportsrugby.javaclient.TestUtils;
+import fr.gplassard.apiclients.apisportsrugby.javaapi.RugbyLeagueApi;
+import fr.gplassard.apiclients.apisportsrugby.javaapi.RugbyLeagueApiClient;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+class LeagueApiTest {
+    private static final RugbyLeagueApi leagueApi = new RugbyLeagueApiClient(TestUtils.getApiSportKey());
+
+    @Test
+    void listLeagues() throws ApiException {
+        var response = leagueApi.listLeagues(ListLeaguesRequest.builder().build());
+        System.out.println(response.getData());
+
+        assertThat(response.getStatusCode()).isEqualTo(200);
+        assertThat(response.getData()).hasSizeGreaterThan(50);
+    }
+
+}
