@@ -4,7 +4,7 @@ import fr.gplassard.apiclients.apisportsrugby.javaclient.ApiClient;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.ApiResponse;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.api.base.GameApi;
 import fr.gplassard.apiclients.apisportsrugby.javaapi.model.ListGamesRequest;
-import fr.gplassard.apiclients.apisportsrugby.javaapi.model.ResponseUtils;
+import fr.gplassard.apiclients.apisportsrugby.javaapi.utils.ResponseUtils;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.model.Game;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.model.ListGamesResponseContent;
 

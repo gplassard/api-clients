@@ -1,4 +1,4 @@
-package fr.gplassard.apiclients.apisportsrugby.javaapi.model;
+package fr.gplassard.apiclients.apisportsrugby.javaapi.utils;
 
 import fr.gplassard.apiclients.apisportsrugby.javaclient.ApiException;
 import fr.gplassard.apiclients.apisportsrugby.javaclient.ApiResponse;
