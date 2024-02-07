@@ -8,6 +8,7 @@ val libs = the<LibrariesForLibs>()
 plugins {
     id("java")
     id("maven-publish")
+    id("com.coditory.integration-test")
 }
 
 val props = Properties().apply {
@@ -31,6 +32,16 @@ dependencies {
     implementation(libs.jackson.datatype.jsr310)
     implementation(libs.jackson.databind.nullable)
     implementation(libs.jakarta.annotation.api)
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.assertj)
+    testRuntimeOnly(libs.junit.platform)
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
 
 publishing {
@@ -60,14 +71,8 @@ publishing {
             val baseModule = project.path.split(":")[1]
 
             groupId = "fr.gplassard.apiclients"
-            artifactId = "$baseModule-client"
+            artifactId = "$baseModule-api"
             from(components["java"])
         }
-    }
-}
-
-tasks.named("compileJava") {
-    project.parent?.getTasksByName("codegenJavaClient", true)?.forEach {
-        dependsOn(it)
     }
 }
