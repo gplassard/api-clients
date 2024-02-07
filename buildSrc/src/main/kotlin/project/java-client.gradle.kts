@@ -73,3 +73,9 @@ tasks.named("compileJava") {
         dependsOn(it)
     }
 }
+
+tasks.named("sourcesJar") {
+    project.parent?.getTasksByName("codegenJavaClient", true)?.forEach {
+        dependsOn(it)
+    }
+}
