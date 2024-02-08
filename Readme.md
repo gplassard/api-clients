@@ -8,4 +8,5 @@
 # Links
 * https://api-sports.io/ (rugby)
 * https://www.football-data.org/ (football)
+* https://docs.football-data.org
 * https://the-odds-api.com/ (odds)
