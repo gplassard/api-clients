@@ -4,7 +4,15 @@
     "openapi": {
       "service": "footballdata#FootballData",
       "tags": true,
-      "useIntegerType": true
+      "useIntegerType": true,
+      "jsonAdd": {
+        "/servers": [
+          {
+            "url": "https://api.football-data.org"
+          }
+        ]
+      }
+
     }
   }
 }
