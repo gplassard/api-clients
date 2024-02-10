@@ -4,6 +4,7 @@ import fr.gplassard.apiclients.apisportsrugby.TestUtils;
 import fr.gplassard.apiclients.footballdata.javaapi.FootballCompetitionApi;
 import fr.gplassard.apiclients.footballdata.javaapi.FootballCompetitionApiClient;
 import fr.gplassard.apiclients.footballdata.javaapi.model.GetCompetitionRequest;
+import fr.gplassard.apiclients.footballdata.javaapi.model.ListCompetitionMatchesRequest;
 import fr.gplassard.apiclients.footballdata.javaapi.model.ListCompetitionsRequest;
 import fr.gplassard.apiclients.footballdata.javaclient.ApiException;
 import org.junit.jupiter.api.Test;
@@ -37,5 +38,22 @@ class FootballCompetitionApiTest {
 
         assertThat(response.getStatusCode()).isEqualTo(200);
         assertThat(response.getData().getCount()).isGreaterThan(10);
+    }
+
+    @Test
+    void listCompetitionMatches() {
+        var response = footballCompetitionApi.listCompetitionMatches(ListCompetitionMatchesRequest.builder().code("FL1").build());
+
+        assertThat(response.getStatusCode()).isEqualTo(200);
+        assertThat(response.getData().getMatches()).hasSizeGreaterThan(10);
+    }
+
+    @Test
+    void listCompetitionMatches_invalid() {
+        assertThatThrownBy(() ->
+                footballCompetitionApi.listCompetitionMatches(ListCompetitionMatchesRequest.builder().code("haha").build())
+        )
+                .isInstanceOf(ApiException.class)
+                .hasMessage("listCompetitionMatches call failed with: 400 - {\"message\":\"Argument 'competitionId' is expected to be either an integer in a specified range or a competition code.\",\"errorCode\":400}");
     }
 }

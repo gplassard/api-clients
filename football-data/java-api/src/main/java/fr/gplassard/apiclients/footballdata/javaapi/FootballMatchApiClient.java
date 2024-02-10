@@ -1,12 +1,12 @@
 package fr.gplassard.apiclients.footballdata.javaapi;
 
 import fr.gplassard.apiclients.footballdata.javaapi.model.GetMatchRequest;
-import fr.gplassard.apiclients.footballdata.javaapi.model.ListMatchsRequest;
+import fr.gplassard.apiclients.footballdata.javaapi.model.ListMatchesRequest;
 import fr.gplassard.apiclients.footballdata.javaclient.ApiClient;
 import fr.gplassard.apiclients.footballdata.javaclient.ApiResponse;
 import fr.gplassard.apiclients.footballdata.javaclient.api.base.MatchApi;
 import fr.gplassard.apiclients.footballdata.javaclient.model.GetMatchResponseContent;
-import fr.gplassard.apiclients.footballdata.javaclient.model.ListMatchsResponseContent;
+import fr.gplassard.apiclients.footballdata.javaclient.model.ListMatchesResponseContent;
 
 public class FootballMatchApiClient implements FootballMatchApi {
     private final MatchApi matchApi;
@@ -23,8 +23,8 @@ public class FootballMatchApiClient implements FootballMatchApi {
     }
 
     @Override
-    public ApiResponse<ListMatchsResponseContent> listMatchs(ListMatchsRequest request) {
-        return this.matchApi.listMatchsWithHttpInfo(
+    public ApiResponse<ListMatchesResponseContent> listMatches(ListMatchesRequest request) {
+        return this.matchApi.listMatchesWithHttpInfo(
                 request.ids(),
                 request.date(),
                 request.from(),

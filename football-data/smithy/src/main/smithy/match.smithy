@@ -3,13 +3,13 @@ $version: "2"
 namespace footballdata
 
 resource MatchResource {
-    operations: [ListMatchs, GetMatch]
+    operations: [ListMatches, GetMatch]
 }
 
 @readonly
 @tags(["match"])
 @http(method: "GET", uri: "/v4/matches")
-operation ListMatchs {
+operation ListMatches {
     input := {
         @httpQuery("ids")
         ids: String
