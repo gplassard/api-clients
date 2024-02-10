@@ -4,7 +4,7 @@ import fr.gplassard.apiclients.apisportsrugby.TestUtils;
 import fr.gplassard.apiclients.footballdata.javaapi.FootballMatchApi;
 import fr.gplassard.apiclients.footballdata.javaapi.FootballMatchApiClient;
 import fr.gplassard.apiclients.footballdata.javaapi.model.GetMatchRequest;
-import fr.gplassard.apiclients.footballdata.javaapi.model.ListMatchsRequest;
+import fr.gplassard.apiclients.footballdata.javaapi.model.ListMatchesRequest;
 import fr.gplassard.apiclients.footballdata.javaclient.ApiException;
 import org.junit.jupiter.api.Test;
 
@@ -37,7 +37,7 @@ class FootballMatchApiTest {
 
     @Test
     void listMatchs() {
-        var response = footballMatchApi.listMatchs(ListMatchsRequest.builder().date(LocalDate.of(2024, Month.FEBRUARY, 9)).build());
+        var response = footballMatchApi.listMatches(ListMatchesRequest.builder().date(LocalDate.of(2024, Month.FEBRUARY, 9)).build());
 
         assertThat(response.getStatusCode()).isEqualTo(200);
         assertThat(response.getData().getMatches()).hasSize(8);

@@ -3,7 +3,7 @@ $version: "2"
 namespace footballdata
 
 resource CompetitionResource {
-    operations: [ListCompetitions, GetCompetition]
+    operations: [ListCompetitions, GetCompetition, ListCompetitionMatches]
 }
 
 @readonly
@@ -32,6 +32,36 @@ operation GetCompetition {
     }
     output: Competition
 }
+
+@readonly
+@tags(["competition"])
+@http(method: "GET", uri: "/v4/competitions/{code}/matches")
+operation ListCompetitionMatches {
+    input := {
+        @required
+        @httpLabel
+        code: String
+        @httpQuery("season")
+        season: Integer
+        @httpQuery("matchDay")
+        matchDay: Integer
+        @httpQuery("status")
+        status: MatchStatus
+        @httpQuery("dateFrom")
+        dateFrom: FullDate
+        @httpQuery("dateTo")
+        dateTo: FullDate
+        @httpQuery("stage")
+        stage: MatchStage
+        @httpQuery("group")
+        group: MatchGroup
+    }
+    output := {
+        filters: CompetititionMatchesFilters
+        matches: MatchList
+    }
+}
+
 
 structure CompetititionFilters {
 
@@ -95,4 +125,14 @@ structure Competition {
 }
 list CompetitionSeasonList {
     member: CompetitionSeason
+}
+
+structure CompetititionMatchesFilters {
+    season: Integer
+    matchDay: Integer
+    status: MatchStatus
+    dateFrom: FullDate
+    dateTo: FullDate
+    stage: MatchStage
+    group: MatchGroup
 }
