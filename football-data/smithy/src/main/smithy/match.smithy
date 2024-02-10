@@ -51,6 +51,7 @@ list MatchList {
 }
 
 structure Match {
+    id: Integer
     area: MatchArea
     competition: MatchCompetition
     season: MatchSeason
