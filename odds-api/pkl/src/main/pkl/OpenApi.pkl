@@ -1,0 +1,38 @@
+@ModuleInfo { minPklVersion = "0.25.1" }
+module OddsApi
+
+import "@openapi/Schema.pkl"
+
+openapi: String
+info: Info
+paths: Mapping<String, Path>
+
+class Info {
+  title: String
+  version: String
+}
+
+class Path {
+  get: GetOperation
+}
+
+class GetOperation {
+  operationId: String
+  parameters: Listing<Parameter>
+  responses: Mapping<String, Response>
+  tags: Listing<String>
+}
+
+class Parameter {
+  name: String
+  `in`: String
+  schema: Schema
+}
+
+class Response {
+
+}
+
+output {
+  renderer = new YamlRenderer {}
+}
