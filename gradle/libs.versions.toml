@@ -12,6 +12,7 @@ openapi-plugin = "7.0.1"
 release-plugin = "3.0.2"
 integrationtest-plugin = "1.4.5"
 smithy-extensions-openapi = "0.1.2"
+pkl-plugin = "0.25.2"
 
 [libraries]
 jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
@@ -39,3 +40,4 @@ integrationtest-plugin = { module = "com.coditory.integration-test:com.coditory.
 
 [plugins]
 release-plugin = { id = "net.researchgate.release", version.ref = "release-plugin"}
+pkl-plugin = { id = "org.pkl-lang", version.ref = "pkl-plugin" }
