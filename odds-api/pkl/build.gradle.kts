@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.pkl.plugin)
+    id("project.smithy")
 }
 
 pkl {
@@ -10,4 +11,9 @@ pkl {
             outputFile.set(layout.buildDirectory.file("openapi/OddsApi.openapi.yaml"))
         }
     }
+}
+
+customOpenApiGeneration {
+    apiName.set("OddsApi")
+    openApiProvenance.set("pkl")
 }

@@ -6,4 +6,49 @@ info {
   version = "1.0"
 }
 paths {
+  ["/v4/sports"] {
+    get {
+      operationId = "GetSports"
+      parameters {
+        new {
+          name = "all"
+          `in` = "query"
+          schema {
+            type = "boolean"
+          }
+        }
+      }
+      responses {
+        ["200"] {
+          content {
+            ["application/json"] {
+              schema {
+                type = "object"
+                properties {
+                  //                   ["key"] {
+                  //                     type = "string"
+                  //                   }
+                  //                   ["group"] {
+                  //                     type = "string"
+                  //                   }
+                  //                   ["title"] {
+                  //                     type = "string"
+                  //                   }
+                  //                   ["description"] {
+                  //                     type = "string"
+                  //                   }
+                  //                   ["active"] {
+                  //                     type = "boolean"
+                  //                   }
+                  //                   ["has_outrights"] {
+                  //                     type = "boolean"
+                  //                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
