@@ -30,7 +30,11 @@ class Parameter {
 }
 
 class Response {
-
+  description: String?
+  content: Mapping<String, ResponseContent>
+}
+class ResponseContent {
+  schema: Schema
 }
 
 output {

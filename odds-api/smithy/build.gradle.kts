@@ -4,4 +4,5 @@ plugins {
 
 customOpenApiGeneration {
     apiName.set("OddsApi")
+    openApiProvenance.set("smithy")
 }

@@ -3,4 +3,5 @@ plugins {
 }
 customOpenApiGeneration {
     apiName.set("Rugby")
+    openApiProvenance.set("smithy")
 }
