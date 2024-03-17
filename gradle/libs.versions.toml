@@ -34,10 +34,10 @@ smithy-extensions-openapi = { module = "fr.gplassard.smithyextensions:open-api",
 smithy-plugin = { module = "software.amazon.smithy:software.amazon.smithy.gradle.plugin", version.ref = "smithy-plugin"}
 openapi-plugin = { module = "org.openapi.generator:org.openapi.generator.gradle.plugin", version.ref = "openapi-plugin"}
 integrationtest-plugin = { module = "com.coditory.integration-test:com.coditory.integration-test.gradle.plugin", version.ref = "integrationtest-plugin"}
+pkl-plugin = { module = "org.pkl-lang:org.pkl-lang.gradle.plugin", version.ref = "pkl-plugin" }
 
 [bundles]
 # Define bundles/groups of libraries
 
 [plugins]
 release-plugin = { id = "net.researchgate.release", version.ref = "release-plugin"}
-pkl-plugin = { id = "org.pkl-lang", version.ref = "pkl-plugin" }
