@@ -1,6 +1,10 @@
 plugins {
-    alias(libs.plugins.pkl.plugin)
-    id("project.smithy")
+    id("project.pkl")
+}
+
+customOpenApiGeneration {
+    apiName.set("OddsApi")
+    openApiProvenance.set("pkl")
 }
 
 pkl {
@@ -13,7 +17,3 @@ pkl {
     }
 }
 
-customOpenApiGeneration {
-    apiName.set("OddsApi")
-    openApiProvenance.set("pkl")
-}
