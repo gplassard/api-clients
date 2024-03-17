@@ -1,7 +1,7 @@
 @ModuleInfo { minPklVersion = "0.25.1" }
 module OddsApi
 
-import "@openapi/Schema.pkl"
+import "package://pkg.pkl-lang.org/pkl-pantry/org.openapis.v3@1.0.0#/Schema.pkl"
 
 openapi: String
 info: Info

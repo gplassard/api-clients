@@ -9,6 +9,9 @@ paths {
   ["/v4/sports"] {
     get {
       operationId = "GetSports"
+      tags {
+        "sport"
+      }
       parameters {
         new {
           name = "all"
@@ -26,24 +29,25 @@ paths {
               schema {
                 type = "object"
                 properties {
-                  //                   ["key"] {
-                  //                     type = "string"
-                  //                   }
-                  //                   ["group"] {
-                  //                     type = "string"
-                  //                   }
-                  //                   ["title"] {
-                  //                     type = "string"
-                  //                   }
-                  //                   ["description"] {
-                  //                     type = "string"
-                  //                   }
-                  //                   ["active"] {
-                  //                     type = "boolean"
-                  //                   }
-                  //                   ["has_outrights"] {
-                  //                     type = "boolean"
-                  //                   }
+                  default = (_name) -> new {}
+                  ["key"] {
+                    type = "string"
+                  }
+                  ["group"] {
+                    type = "string"
+                  }
+                  ["title"] {
+                    type = "string"
+                  }
+                  ["description"] {
+                    type = "string"
+                  }
+                  ["active"] {
+                    type = "boolean"
+                  }
+                  ["has_outrights"] {
+                    type = "boolean"
+                  }
                 }
               }
             }
