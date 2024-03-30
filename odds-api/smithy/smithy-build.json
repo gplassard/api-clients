@@ -8,13 +8,19 @@
       "jsonAdd": {
         "/servers": [
           {
-            "url": "https://the-odds-api.com"
+            "url": "https://api.the-odds-api.com"
           }
         ],
         "/components/schemas/ListSportsResponseContent": {
           "type": "array",
           "items": {
             "$ref": "#/components/schemas/Sport"
+          }
+        },
+        "/components/schemas/ListSportOddsResponseContent": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Odd"
           }
         }
       }
