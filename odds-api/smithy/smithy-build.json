@@ -10,7 +10,13 @@
           {
             "url": "https://the-odds-api.com"
           }
-        ]
+        ],
+        "/components/schemas/ListSportsResponseContent": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Sport"
+          }
+        }
       }
     }
   }

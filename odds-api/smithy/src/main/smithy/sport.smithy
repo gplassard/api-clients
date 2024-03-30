@@ -12,9 +12,13 @@ resource MatchResource {
 operation ListSports {
     input := {
     }
-    output: SportList
+    output: UnwrappedSportList
 }
 
+// This wrapper will be removed once transforming into the openapi specification
+structure UnwrappedSportList {
+    unwrapped: SportList
+}
 
 list SportList {
     member: Sport
