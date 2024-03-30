@@ -19,9 +19,10 @@ class CustomOpenApiGenerationPlugin : Plugin<Project> {
 
             val baseModule = project.path.split(":")[1]
             val packageName = baseModule.replace("-", "")
+            val openApiLocation =  "smithy/build/smithyprojections/smithy/source/openapi/${extension.apiName.get()}.openapi.json"
 
             generatorName.set("java")
-            inputSpec.set("${project.rootDir}/${baseModule}/smithy/build/smithyprojections/smithy/source/openapi/${extension.apiName.get()}.openapi.json")
+            inputSpec.set("${project.rootDir}/${baseModule}/${openApiLocation}")
             outputDir.set("${project.rootDir}/${baseModule}/java-client")
             configOptions.putAll(mapOf(
                 "library" to "native",

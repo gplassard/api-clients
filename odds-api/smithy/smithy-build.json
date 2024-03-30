@@ -1,0 +1,29 @@
+{
+  "version": "2.0",
+  "plugins": {
+    "openapi": {
+      "service": "oddsapi#OddsApi",
+      "tags": true,
+      "useIntegerType": true,
+      "jsonAdd": {
+        "/servers": [
+          {
+            "url": "https://api.the-odds-api.com"
+          }
+        ],
+        "/components/schemas/ListSportsResponseContent": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Sport"
+          }
+        },
+        "/components/schemas/ListSportOddsResponseContent": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/Odd"
+          }
+        }
+      }
+    }
+  }
+}
