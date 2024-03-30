@@ -1,9 +1,9 @@
-name: Java release football data
+name: Java release odds api
 
 on:
   push:
     tags:
-      - "football-data-*"
+      - "odds-api-*"
 
 jobs:
   build-github:
@@ -40,11 +40,11 @@ jobs:
           CODEARTIFACT_AUTH_TOKEN: ${{ steps.code-artifact-token.outputs.token }}
           CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
       - name: Publish package
-        run: ./gradlew :football-data:java-client:publishAllPublicationsToGithubPackagesRepository
+        run: ./gradlew :odds-api:java-client:publishAllPublicationsToGithubPackagesRepository
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish package
-        run: ./gradlew :football-data:java-api:publishAllPublicationsToGithubPackagesRepository
+        run: ./gradlew :odds-api:java-api:publishAllPublicationsToGithubPackagesRepository
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   build-code-artifact:
@@ -81,10 +81,10 @@ jobs:
           CODEARTIFACT_AUTH_TOKEN: ${{ steps.code-artifact-token.outputs.token }}
           CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
       - name: Publish package
-        run: ./gradlew :football-data:java-client:publishAllPublicationsToCodeArtifactRepository
+        run: ./gradlew :odds-api:java-client:publishAllPublicationsToCodeArtifactRepository
         env:
           CODEARTIFACT_AUTH_TOKEN: ${{ steps.code-artifact-token.outputs.token }}
       - name: Publish package
-        run: ./gradlew :football-data:java-api:publishAllPublicationsToCodeArtifactRepository
+        run: ./gradlew :odds-api:java-api:publishAllPublicationsToCodeArtifactRepository
         env:
           CODEARTIFACT_AUTH_TOKEN: ${{ steps.code-artifact-token.outputs.token }}
