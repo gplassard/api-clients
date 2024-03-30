@@ -12,7 +12,6 @@ openapi-plugin = "7.0.1"
 release-plugin = "3.0.2"
 integrationtest-plugin = "1.4.5"
 smithy-extensions-openapi = "0.1.2"
-pkl-plugin = "0.25.2"
 
 [libraries]
 jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
@@ -34,7 +33,6 @@ smithy-extensions-openapi = { module = "fr.gplassard.smithyextensions:open-api",
 smithy-plugin = { module = "software.amazon.smithy:software.amazon.smithy.gradle.plugin", version.ref = "smithy-plugin"}
 openapi-plugin = { module = "org.openapi.generator:org.openapi.generator.gradle.plugin", version.ref = "openapi-plugin"}
 integrationtest-plugin = { module = "com.coditory.integration-test:com.coditory.integration-test.gradle.plugin", version.ref = "integrationtest-plugin"}
-pkl-plugin = { module = "org.pkl-lang:org.pkl-lang.gradle.plugin", version.ref = "pkl-plugin" }
 
 [bundles]
 # Define bundles/groups of libraries

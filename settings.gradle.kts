@@ -18,5 +18,5 @@ include("football-data:java-api")
 
 include("odds-api")
 include("odds-api:java-client")
+include("odds-api:smithy")
 include("odds-api:java-api")
-include("odds-api:pkl")

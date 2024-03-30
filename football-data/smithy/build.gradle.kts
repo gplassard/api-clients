@@ -4,5 +4,4 @@ plugins {
 
 customOpenApiGeneration {
     apiName.set("FootballData")
-    openApiProvenance.set("smithy")
 }

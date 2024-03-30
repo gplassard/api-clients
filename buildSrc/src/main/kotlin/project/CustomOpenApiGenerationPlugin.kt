@@ -9,29 +9,17 @@ import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
 
 interface CustomOpenApiGenerationPluginExtension {
     val apiName: Property<String>
-    val openApiProvenance: Property<String>
 }
 
 class CustomOpenApiGenerationPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         val extension = project.extensions.create<CustomOpenApiGenerationPluginExtension>("customOpenApiGeneration")
         project.tasks.register<GenerateTask>("codegenJavaClient") {
-            val (dependency, openApiLocation) = when (extension.openApiProvenance.get()) {
-                "smithy" -> Pair(
-                    "smithyBuildJar",
-                    "smithy/build/smithyprojections/smithy/source/openapi/${extension.apiName.get()}.openapi.json"
-                )
-
-                else -> Pair(
-                    "evalPkl",
-                    "pkl/build/openapi/${extension.apiName.get()}.openapi.yaml"
-                )
-            }
-
-            dependsOn(dependency)
+            dependsOn("smithyBuildJar")
 
             val baseModule = project.path.split(":")[1]
             val packageName = baseModule.replace("-", "")
+            val openApiLocation =  "smithy/build/smithyprojections/smithy/source/openapi/${extension.apiName.get()}.openapi.json"
 
             generatorName.set("java")
             inputSpec.set("${project.rootDir}/${baseModule}/${openApiLocation}")
