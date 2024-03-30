@@ -17,3 +17,6 @@ pkl {
     }
 }
 
+tasks.named("build").configure {
+    dependsOn("evalPkl")
+}
