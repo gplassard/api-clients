@@ -9,16 +9,16 @@ importers:
   .:
     devDependencies:
       '@gplassard/projen-extensions':
-        specifier: ^0.0.91
-        version: 0.0.91
+        specifier: ^0.0.92
+        version: 0.0.92
       projen:
         specifier: ^0.80.19
         version: 0.80.19(constructs@10.3.0)
 
 packages:
 
-  '@gplassard/projen-extensions@0.0.91':
-    resolution: {integrity: sha512-8pLeEITM+HNo+JMqpTd6HuXcbTJhZN1FoGDHZh944fPGjmAB1P6HD9mKsO10cH9Sm6oTkvHmaUDHr/NnkuNf0g==, tarball: https://npm.pkg.github.com/download/@gplassard/projen-extensions/0.0.91/390485242a985af72b2f20ffa1dbb94ebbf30e76}
+  '@gplassard/projen-extensions@0.0.92':
+    resolution: {integrity: sha512-W5hpsGE+N67Sfbftsl7/2alWBGArEAxpsGHUQ7Thafv2QB25wn0tkGzKYfN06eDe1HkdQWJaG4A7p9biF35N1g==, tarball: https://npm.pkg.github.com/download/@gplassard/projen-extensions/0.0.92/0057892f7f3b088698b0c6c8b24c807d68175615}
 
   constructs@10.3.0:
     resolution: {integrity: sha512-vbK8i3rIb/xwZxSpTjz3SagHn1qq9BChLEfy5Hf6fB3/2eFbrwt2n9kHwQcS0CPTRBesreeAcsJfMq2229FnbQ==}
@@ -45,15 +45,40 @@ packages:
       - yaml
       - yargs
 
+  projen@0.81.0:
+    resolution: {integrity: sha512-JfEJs45TYsXlz/Nf9oVzEHztUNFVkO9d0SgJ3cG0vDTmrKACse44lB37I86orueW7iuw8pXGqwU6m4Kg2LdAkQ==}
+    engines: {node: '>= 16.0.0'}
+    hasBin: true
+    peerDependencies:
+      constructs: ^10.0.0
+    bundledDependencies:
+      - '@iarna/toml'
+      - case
+      - chalk
+      - comment-json
+      - conventional-changelog-config-spec
+      - fast-json-patch
+      - glob
+      - ini
+      - semver
+      - shx
+      - xmlbuilder2
+      - yaml
+      - yargs
+
 snapshots:
 
-  '@gplassard/projen-extensions@0.0.91':
+  '@gplassard/projen-extensions@0.0.92':
     dependencies:
       constructs: 10.3.0
-      projen: 0.80.19(constructs@10.3.0)
+      projen: 0.81.0(constructs@10.3.0)
 
   constructs@10.3.0: {}
 
   projen@0.80.19(constructs@10.3.0):
+    dependencies:
+      constructs: 10.3.0
+
+  projen@0.81.0(constructs@10.3.0):
     dependencies:
       constructs: 10.3.0

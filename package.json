@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@gplassard/projen-extensions": "^0.0.91",
+    "@gplassard/projen-extensions": "^0.0.92",
     "projen": "^0.80.19"
   }
 }

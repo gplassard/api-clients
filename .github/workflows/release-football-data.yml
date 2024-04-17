@@ -9,7 +9,7 @@ jobs:
   publish-github:
     runs-on: ubuntu-latest
     env:
-      CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL}}
+      CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
     permissions:
       contents: read
       packages: write
@@ -51,7 +51,7 @@ jobs:
   publish-code-artifact:
     runs-on: ubuntu-latest
     env:
-      CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL}}
+      CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
     permissions:
       contents: read
       packages: write
