@@ -1,41 +1,35 @@
-lockfileVersion: '6.0'
+lockfileVersion: '9.0'
 
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-devDependencies:
-  '@gplassard/projen-extensions':
-    specifier: ^0.0.86
-    version: 0.0.86(constructs@10.3.0)
-  projen:
-    specifier: ^0.80.19
-    version: 0.80.19(constructs@10.3.0)
+importers:
+
+  .:
+    devDependencies:
+      '@gplassard/projen-extensions':
+        specifier: ^0.0.91
+        version: 0.0.91
+      projen:
+        specifier: ^0.80.19
+        version: 0.80.19(constructs@10.3.0)
 
 packages:
 
-  /@gplassard/projen-extensions@0.0.86(constructs@10.3.0):
-    resolution: {integrity: sha512-oh8+l9xMTPIOQe4UGc+S7NCE5ulZ0URTE+CQnxPHrMgJcLhJ3FIG94OjP9gZ1NSzd7B7XJmiihMBFVeDIv2yUA==, tarball: https://npm.pkg.github.com/download/@gplassard/projen-extensions/0.0.86/1f37ba4f6ca1e15a0110153610dff5531eb606ad}
-    dependencies:
-      projen: 0.80.19(constructs@10.3.0)
-    transitivePeerDependencies:
-      - constructs
-    dev: true
+  '@gplassard/projen-extensions@0.0.91':
+    resolution: {integrity: sha512-8pLeEITM+HNo+JMqpTd6HuXcbTJhZN1FoGDHZh944fPGjmAB1P6HD9mKsO10cH9Sm6oTkvHmaUDHr/NnkuNf0g==, tarball: https://npm.pkg.github.com/download/@gplassard/projen-extensions/0.0.91/390485242a985af72b2f20ffa1dbb94ebbf30e76}
 
-  /constructs@10.3.0:
+  constructs@10.3.0:
     resolution: {integrity: sha512-vbK8i3rIb/xwZxSpTjz3SagHn1qq9BChLEfy5Hf6fB3/2eFbrwt2n9kHwQcS0CPTRBesreeAcsJfMq2229FnbQ==}
     engines: {node: '>= 16.14.0'}
-    dev: true
 
-  /projen@0.80.19(constructs@10.3.0):
+  projen@0.80.19:
     resolution: {integrity: sha512-icZyUZlfk/cc5HcAmm+aunSYzOjF1e+ZdTB/9K/++KktKrkqQJHD6y/EBkvU7rKsfQlntuX5ESt2xsXNgVBJzg==}
     engines: {node: '>= 16.0.0'}
     hasBin: true
     peerDependencies:
       constructs: ^10.0.0
-    dependencies:
-      constructs: 10.3.0
-    dev: true
     bundledDependencies:
       - '@iarna/toml'
       - case
@@ -50,3 +44,16 @@ packages:
       - xmlbuilder2
       - yaml
       - yargs
+
+snapshots:
+
+  '@gplassard/projen-extensions@0.0.91':
+    dependencies:
+      constructs: 10.3.0
+      projen: 0.80.19(constructs@10.3.0)
+
+  constructs@10.3.0: {}
+
+  projen@0.80.19(constructs@10.3.0):
+    dependencies:
+      constructs: 10.3.0

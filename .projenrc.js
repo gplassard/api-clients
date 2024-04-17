@@ -1,36 +1,31 @@
-const { GradleLibraryProject } = require('@gplassard/projen-extensions');
+const { GradleLibraryProject, GradleSubProject} = require('@gplassard/projen-extensions');
 
 const project = new GradleLibraryProject({
     name: 'api-clients',
     githubLint: {},
     gradleBuildAction: {},
-    gradleReleaseAction: {
-        gradle: {
-            codeArtifactPublishTasks: [
-                'publishAllPublicationsToCodeArtifactRepository',
-            ],
-            githubRegistryPublishTasks: [
-                'publishAllPublicationsToGithubPackagesRepository',
-            ],
-        },
-        libraryName: 'my-awesome-library',
-        tagPattern: 'v*',
-    },
 });
-new GradleLibraryProject({
-    parent: project,
-    outdir: './api-sports-rugby',
-    gradleReleaseAction: {
-        libraryName: 'api-sports-rugby',
-        tagPattern: 'api-sports-rugby-*',
-        gradle: {
-            codeArtifactPublishTasks: [
-                'publishAllPublicationsToCodeArtifactRepository',
-            ],
-            githubRegistryPublishTasks: [
-                'publishAllPublicationsToGithubPackagesRepository',
-            ],
+const libraries = [
+    'api-sports-rugby',
+    'football-data',
+    'odds-api',
+]
+for (const library of libraries) {
+    new GradleSubProject(project, library, {
+        gradleReleaseAction: {
+            libraryName: library,
+            tagPattern: `${library}-*`,
+            gradle: {
+                codeArtifactPublishTasks: [
+                    `:${library}:java-client:publishAllPublicationsToCodeArtifactRepository`,
+                    `:${library}:java-api:publishAllPublicationsToCodeArtifactRepository`,
+                ],
+                githubRegistryPublishTasks: [
+                    `:${library}:java-client:publishAllPublicationsToGithubPackagesRepository`,
+                    `:${library}:java-api:publishAllPublicationsToGithubPackagesRepository`,
+                ],
+            }
         }
-    }
-})
+    })
+}
 project.synth();
