@@ -15,3 +15,5 @@ build
 !/.github/workflows/release-api-sports-rugby.yml
 !/.github/workflows/release-football-data.yml
 !/.github/workflows/release-odds-api.yml
+!/.github/workflows/projen-synth.yml
+!/.github/workflows/upgrade-nodejs-dependencies.yml

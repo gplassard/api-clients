@@ -1,4 +1,4 @@
-const { GradleLibraryProject, GradleSubProject} = require('@gplassard/projen-extensions');
+const { GradleLibraryProject, GradleSubProject, ProjenSynthAction, NodeJSDependenciesUpgradeAction } = require('@gplassard/projen-extensions');
 
 const project = new GradleLibraryProject({
     name: 'api-clients',
@@ -28,4 +28,6 @@ for (const library of libraries) {
         }
     })
 }
+new ProjenSynthAction(project, {});
+new NodeJSDependenciesUpgradeAction(project, {});
 project.synth();

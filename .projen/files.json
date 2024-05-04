@@ -2,10 +2,12 @@
   "files": [
     ".gitattributes",
     ".github/workflows/build.yml",
+    ".github/workflows/projen-synth.yml",
     ".github/workflows/pull-request-lint.yml",
     ".github/workflows/release-api-sports-rugby.yml",
     ".github/workflows/release-football-data.yml",
     ".github/workflows/release-odds-api.yml",
+    ".github/workflows/upgrade-nodejs-dependencies.yml",
     ".gitignore",
     ".projen/deps.json",
     ".projen/files.json",
