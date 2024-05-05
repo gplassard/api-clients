@@ -1,0 +1,17 @@
+{
+  "name": "api-clients",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "projen": "node .projenrc.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@gplassard/projen-extensions": "^0.0.96",
+    "projen": "^0.81.5"
+  }
+}
