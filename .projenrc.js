@@ -1,5 +1,4 @@
 const { GradleLibraryProject, GradleSubProject, ProjenSynthAction, NodeJSDependenciesUpgradeAction } = require('@gplassard/projen-extensions');
-const { GitHub } = require('projen/lib/github');
 
 const project = new GradleLibraryProject({
     name: 'api-clients',
@@ -13,7 +12,7 @@ const libraries = [
 ]
 for (const library of libraries) {
     new GradleSubProject(project, library, {
-        gradleReleaseAction: {
+        gradleReleaseActionOptions: {
             libraryName: library,
             tagPattern: `${library}-*`,
             gradle: {
