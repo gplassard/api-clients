@@ -29,7 +29,4 @@ for (const library of libraries) {
         }
     })
 }
-const github = new GitHub(project, { pullRequestLint: false });
-new ProjenSynthAction(github, {});
-new NodeJSDependenciesUpgradeAction(github, {});
 project.synth();
