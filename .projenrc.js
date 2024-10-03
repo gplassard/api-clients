@@ -8,6 +8,7 @@ const project = new GradleLibraryProject({
         additionalEnvs: {
             APISPORT_KEY: '${{ secrets.APISPORT_KEY }}',
             FOOTBALL_DATA_KEY: '${{ secrets.FOOTBALL_DATA_KEY }}',
+            ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}',
         }
     },
 });
