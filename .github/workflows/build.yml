@@ -18,6 +18,7 @@ jobs:
     env:
       APISPORT_KEY: ${{ secrets.APISPORT_KEY }}
       FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
       CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
     permissions:
       contents: read
