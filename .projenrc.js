@@ -6,7 +6,8 @@ const project = new GradleLibraryProject({
     gradleBuildActionOptions: {
         withCodeArtifactAccess: true,
         additionalEnvs: {
-            APISPORT_KEY: '${{ secrets.APISPORT_KEY }}'
+            APISPORT_KEY: '${{ secrets.APISPORT_KEY }}',
+            FOOTBALL_DATA_KEY: '${{ secrets.FOOTBALL_DATA_KEY }}',
         }
     },
 });
