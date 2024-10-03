@@ -1,9 +1,11 @@
-const { GradleLibraryProject, GradleSubProject, ProjenSynthAction, NodeJSDependenciesUpgradeAction } = require('@gplassard/projen-extensions');
+const { GradleLibraryProject, GradleSubProject } = require('@gplassard/projen-extensions');
 
 const project = new GradleLibraryProject({
     name: 'api-clients',
     githubLint: {},
-    gradleBuildAction: {},
+    gradleBuildActionOptions: {
+        withCodeArtifactAccess: true,
+    },
 });
 const libraries = [
     'api-sports-rugby',
