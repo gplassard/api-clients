@@ -16,6 +16,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      APISPORT_KEY: ${{ secrets.APISPORT_KEY }}
       CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
     permissions:
       contents: read

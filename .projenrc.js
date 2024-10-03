@@ -5,6 +5,9 @@ const project = new GradleLibraryProject({
     githubLint: {},
     gradleBuildActionOptions: {
         withCodeArtifactAccess: true,
+        additionalEnvs: {
+            APISPORT_KEY: '${{ secrets.APISPORT_KEY }}'
+        }
     },
 });
 const libraries = [
