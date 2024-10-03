@@ -1,9 +1,16 @@
-const { GradleLibraryProject, GradleSubProject, ProjenSynthAction, NodeJSDependenciesUpgradeAction } = require('@gplassard/projen-extensions');
+const { GradleLibraryProject, GradleSubProject } = require('@gplassard/projen-extensions');
 
 const project = new GradleLibraryProject({
     name: 'api-clients',
     githubLint: {},
-    gradleBuildAction: {},
+    gradleBuildActionOptions: {
+        withCodeArtifactAccess: true,
+        additionalEnvs: {
+            APISPORT_KEY: '${{ secrets.APISPORT_KEY }}',
+            FOOTBALL_DATA_KEY: '${{ secrets.FOOTBALL_DATA_KEY }}',
+            ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}',
+        }
+    },
 });
 const libraries = [
     'api-sports-rugby',

@@ -34,6 +34,6 @@ class OddsSportApiTest {
                 oddsSportApi.listSportOdds(ListSportOddsRequest.builder().regions("DoesNotExist").sport("DoesNotExist").build())
         )
                 .isInstanceOf(ApiException.class)
-                .hasMessage("listSportOdds call failed with: 404 - {\"message\":\"Unknown sport. Check the docs https://the-odds-api.com/liveapi/guides/v4/\"}\n");
+                .hasMessage("listSportOdds call failed with: 404 - {\"message\":\"Unknown sport\",\"error_code\":\"UNKNOWN_SPORT\",\"details_url\":\"https://the-odds-api.com/liveapi/guides/v4/api-error-codes.html#unknown-sport\"}\n");
     }
 }

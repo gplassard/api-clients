@@ -4,13 +4,25 @@ name: Java CI
 on:
   push:
     branches: main
-  pull_request: {}
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
-    env: {}
+    env:
+      APISPORT_KEY: ${{ secrets.APISPORT_KEY }}
+      FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
+      ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+      CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
     permissions:
-      content: read
+      contents: read
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,5 +34,19 @@ jobs:
           java-version: "21"
           distribution: temurin
           cache: gradle
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/${{ secrets.CODE_ARTIFACT_READ_ROLE }}
+          aws-region: us-east-1
+      - name: Generate code artifact token
+        id: code-artifact-token
+        run: |-
+          the_secret=$(aws codeartifact get-authorization-token --domain ${{ secrets.CODE_ARTIFACT_DOMAIN }} --domain-owner ${{ secrets.AWS_ACCOUNT_ID }} --region eu-west-1 --query authorizationToken --output text --duration-seconds 900)
+          echo "::add-mask::$the_secret"
+          echo "token=$the_secret" >> "$GITHUB_OUTPUT"
       - name: Build
         run: ./gradlew build
+        env:
+          CODEARTIFACT_AUTH_TOKEN: ${{ steps.code-artifact-token.outputs.token }}
+          CODE_ARTIFACT_URL: ${{ secrets.CODE_ARTIFACT_URL }}
