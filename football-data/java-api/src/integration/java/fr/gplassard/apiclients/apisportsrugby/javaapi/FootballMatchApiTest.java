@@ -19,11 +19,11 @@ class FootballMatchApiTest {
 
     @Test
     void getMatch() {
-        var response = footballMatchApi.getMatch(GetMatchRequest.builder().matchId("327117").build());
+        var response = footballMatchApi.getMatch(GetMatchRequest.builder().matchId("526036").build());
 
         assertThat(response.getStatusCode()).isEqualTo(200);
-        assertThat(response.getData().getHomeTeam().getName()).isEqualTo("Manchester United FC");
-        assertThat(response.getData().getAwayTeam().getName()).isEqualTo("Southampton FC");
+        assertThat(response.getData().getHomeTeam().getName()).isEqualTo("Club Alianza Lima");
+        assertThat(response.getData().getAwayTeam().getName()).isEqualTo("Club Nacional");
     }
 
     @Test
