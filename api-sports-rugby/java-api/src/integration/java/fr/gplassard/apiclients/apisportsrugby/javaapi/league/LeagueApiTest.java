@@ -24,10 +24,10 @@ class LeagueApiTest {
     @Test
     void listLeagues_invalid() {
         assertThatThrownBy(() ->
-                leagueApi.listLeagues(ListLeaguesRequest.builder().season("aaaa").build())
+                leagueApi.listLeagues(ListLeaguesRequest.builder().season("2025").build())
         )
                 .isInstanceOf(ApiException.class)
-                .hasMessage("[{season=The Season field must contain an integer.}]");
+                .hasMessage("[{plan=Free plans do not have access to this season, try from 2021 to 2023.}]");
     }
 
 }
