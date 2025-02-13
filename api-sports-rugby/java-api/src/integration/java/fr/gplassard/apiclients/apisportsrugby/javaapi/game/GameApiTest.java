@@ -15,7 +15,7 @@ class GameApiTest {
 
     @Test
     void listGames() {
-        var response = gameApi.listGames(ListGamesRequest.builder().season("2023").league("16").build());
+        var response = gameApi.listGames(ListGamesRequest.builder().season("2022").league("16").build());
 
         assertThat(response.getStatusCode()).isEqualTo(200);
         assertThat(response.getData()).hasSizeGreaterThan(50);
@@ -24,7 +24,7 @@ class GameApiTest {
     @Test
     void listGames_invalid() {
         assertThatThrownBy(() ->
-                gameApi.listGames(ListGamesRequest.builder().season("2023").league("aaaa").build())
+                gameApi.listGames(ListGamesRequest.builder().season("2022").league("aaaa").build())
             )
             .isInstanceOf(ApiException.class)
             .hasMessage("[{league=The League field must contain an integer.}]");
