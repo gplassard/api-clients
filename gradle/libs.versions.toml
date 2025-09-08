@@ -5,7 +5,7 @@ jakarta = "3.0.0"
 smithy = "1.61.0"
 junit = "5.13.4"
 assertj = "3.27.4"
-lombok = "1.18.38"
+lombok = "1.18.40"
 
 smithy-plugin = "0.7.0"
 openapi-plugin = "7.0.1"
