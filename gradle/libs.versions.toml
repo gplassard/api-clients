@@ -2,7 +2,7 @@
 jackson = "2.21.0"
 jackson-databind-nullable = "0.2.8"
 jakarta = "3.0.0"
-smithy = "1.66.0"
+smithy = "1.67.0"
 junit = "6.0.2"
 assertj = "3.27.7"
 lombok = "1.18.42"
