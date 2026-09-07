@@ -1,0 +1,2 @@
+minimumReleaseAgeExclude:
+  - projen@0.103.15
