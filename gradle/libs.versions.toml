@@ -1,5 +1,5 @@
 [versions]
-jackson = "2.22.2"
+jackson = "2.22.3"
 jackson-databind-nullable = "0.2.11"
 jakarta = "3.0.0"
 smithy = "1.73.0"
